@@ -1,5 +1,5 @@
 import React from "react";
-import banner from "./banner1.jpg"
+import banner from "./banner1.png"
 
 const Banner = () => {
   return (
@@ -16,7 +16,7 @@ const Banner = () => {
               sapiente enim earum quia illo. Voluptate dolorum aliquam, corporis
               nihil qui nisi vitae nam.
             </p>
-            <label className="input input-bordered flex validator w-full mt-2 dark:bg-slate-900 dark:text-white dark:border-white hover:border-amber-400">
+            <label className="input flex validator w-full mt-2 dark:bg-slate-900 dark:text-white dark:border-white outline-none">
             <svg
               className="h-[1em] opacity-50"
               xmlns="http://www.w3.org/2000/svg"
@@ -33,13 +33,17 @@ const Banner = () => {
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
               </g>
             </svg>
-            <input type="email" placeholder="mail@site.com" required />
+            <input className="outline-none" type="email" placeholder="mail@site.com" required />
           </label>
           </div>
-          <button className="btn btn-soft btn-secondary mt-4">Secondary</button>
+          <button
+          onClick={() =>
+                    document.getElementById("my_modal_3").showModal()
+                  }
+          className="btn btn-soft btn-secondary mt-4">Get Started</button>
         </div>
         <div className="w-full max:w-1/2 flex order-1">
-            <img src={banner} className="w-102 h-102 m-auto" alt="" />
+            <img src={banner} className="w-102 h-102 m-auto hover:scale-85 transition-all" alt="books_banner" />
         </div>
       </div>
     </>

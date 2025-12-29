@@ -1,24 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Login from "./Login";
+import Logout from "./Logout";
+import { useAuth } from "../context/AuthProvider";
 const Navbar = () => {
-  // const [theme, setTheme] = useState(
-  //   localStorage.getItem("theme") ? localStorage.getItem("theme"): "light"
-  // );
-
-  // const element = document.documentElement;
-  // useEffect(() => {
-  //   if(theme === "dark"){
-  //     element.classList.add("dark");
-  //     localStorage.setItem("theme", "dark");
-  //     document.body.classList.add("dark");
-  //   }
-  //   else {
-  //     element.classList.add("light");
-  //     localStorage.setItem("theme", "light");
-  //     document.body.classList.remove("dark");
-  //   }
-  // }, [theme])
+  const [authUser, setAuthUser] = useAuth();
+  console.log(authUser);
 
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
@@ -170,10 +157,21 @@ const Navbar = () => {
                 </svg>
               </label>
             </div>
-            <div className="">
-              <a  onClick={() => document.getElementById("my_modal_3").showModal()} className="btn">Login</a>
-              <Login/>
-            </div>
+            {authUser ? (
+              <Logout />
+            ) : (
+              <div className="">
+                <a
+                  onClick={() =>
+                    document.getElementById("my_modal_3").showModal()
+                  }
+                  className="btn"
+                >
+                  Login
+                </a>
+                <Login />
+              </div>
+            )}
           </div>
         </div>
       </div>

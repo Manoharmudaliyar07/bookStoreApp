@@ -6,3 +6,27 @@
 body {
     font-family: 'Poppins', sans-serif;
 }
+
+/* Light mode (default) dots */
+.slick-dots li button:before {
+  color: #000;  /* black or dark */
+  opacity: 0.4;
+}
+
+/* Active dot in light mode */
+.slick-dots li.slick-active button:before {
+  opacity: 0.9;
+  color: #000;
+}
+
+/* Dark mode dots */
+.dark .slick-dots li button:before {
+  color: #fff;  /* white */
+  opacity: 0.6;
+}
+
+/* Active dot in dark mode */
+.dark .slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: #fff;
+}
